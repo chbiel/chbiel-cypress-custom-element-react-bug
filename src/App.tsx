@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import styles from './Transition.css';
+import {CSSTransition} from "react-transition-group";
+
+interface InternalState {
+    open: boolean;
+    content: string;
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [{open, content}, setState] = useState<InternalState>({
+        open: false,
+        content: "Initial content",
+    });
+
+    const setOpen = (open) => {
+        setState(oldState => ({...oldState, open}))
+    };
+    
+    return (
+        <div className="App">
+            <button onClick={() => setOpen(!open)} data-testid="clickbutton">Click me</button>
+            <CSSTransition
+                in={open}
+                timeout={500}
+                mountOnEnter
+                unmountOnExit
+                classNames={{...styles}}
+            >
+                <div className="App-div">
+                    {content}
+                </div>
+            </CSSTransition>
+        </div>
+    );
 }
 
 export default App;

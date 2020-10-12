@@ -13,13 +13,20 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
+    "react-transition-group": "^4.4.1",
     "typescript": "~3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress:run": "cypress run",
+    "cypress:open": "cypress open",
+    "cypress:verify": "cypress verify",
+    "cypress:version": "cypress version",
+    "cypress:info": "cypress info",
+    "cypress:cache:list": "cypress cache list"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +42,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-transition-group": "^4.4.0",
+    "cypress": "4",
+    "prettier": "^2.1.2"
   }
 }

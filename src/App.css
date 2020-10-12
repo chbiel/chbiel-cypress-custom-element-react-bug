@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.App-div {
+  background-color: lightgrey;
+  width: 200px;
+  position: fixed;
+  z-index: 900;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  box-sizing: border-box;
+}
